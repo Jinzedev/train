@@ -1,4 +1,7 @@
+### member测试端口
 GET http://localhost:8010/member/hello
 Accept: application/json
 
-###
+### gateway转发member测试端口
+GET http://localhost:8000/member/hello
+Accept: application/json
