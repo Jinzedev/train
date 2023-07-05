@@ -1,2 +1,21 @@
 server:
   port: 8010
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/train?characterEncoding=UTF8&autoReconnect=true&serverTimezone=Asia/Shanghai
+    username: train
+    password: train
+
+# mybatis xml路径
+mybatis:
+  mapperLocations: classpath:/mapper/**/*.xml
+# 设置日志
+logging:
+  level:
+    com:
+      jinze:
+        train:
+          member:
+            mapper=trace:
