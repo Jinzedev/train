@@ -8,3 +8,11 @@ Accept: application/json
 
 ### 测试count方法
 GET http://localhost:8000/member/count
+
+### 注册接口
+POST http://localhost:8000/member/register
+Content-Type: application/x-www-form-urlencoded
+
+mobile=99&
+
+###

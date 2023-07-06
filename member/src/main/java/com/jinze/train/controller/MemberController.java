@@ -2,9 +2,7 @@ package com.jinze.train.controller;
 
 import com.jinze.train.service.MemberService;
 import jakarta.annotation.Resource;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Member前端控制器
@@ -23,5 +21,8 @@ public class MemberController {
         return memberService.count();
     }
 
-
+    @PostMapping("/register")
+    public long register(@RequestParam("mobile") String mobile){
+        return memberService.register(mobile);
+    }
 }

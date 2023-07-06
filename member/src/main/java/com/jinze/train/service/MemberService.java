@@ -12,4 +12,12 @@ public interface MemberService {
      * @author jinze
     */
     int count();
+
+    /***
+     * 根据手机号注册用户
+     * @param mobile 手机号
+     * @return long
+     * @author jinze
+    */
+    long register(String mobile);
 }

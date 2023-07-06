@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jinze.train.mapper.MemberMapper">
-
-
     <select id="count" resultType="java.lang.Integer">
         SELECT count(*) from train.member
     </select>
+    <select id="findMemberByMobile" resultType="com.jinze.train.domain.Member">
+        SELECT * from train.member where mobile = #{mobile}
+    </select>
+
+    <insert id="register" parameterType="com.jinze.train.domain.Member">
+        INSERT INTO train.member (id,mobile) values (#{id}, #{mobile})
+    </insert>
+
+
 </mapper>
