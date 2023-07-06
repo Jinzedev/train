@@ -1,6 +1,6 @@
 package com.jinze.train.mapper;
 
-import com.jinze.train.domain.Member;
+import com.jinze.train.domain.member.Member;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

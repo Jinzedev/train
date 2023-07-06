@@ -1,7 +1,7 @@
 package com.jinze.train.service.impl;
 
 import cn.hutool.core.util.ObjectUtil;
-import com.jinze.train.domain.Member;
+import com.jinze.train.domain.member.Member;
 import com.jinze.train.mapper.MemberMapper;
 import com.jinze.train.service.MemberService;
 import jakarta.annotation.Resource;

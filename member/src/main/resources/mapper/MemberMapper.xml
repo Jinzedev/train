@@ -4,11 +4,11 @@
     <select id="count" resultType="java.lang.Integer">
         SELECT count(*) from train.member
     </select>
-    <select id="findMemberByMobile" resultType="com.jinze.train.domain.Member">
+    <select id="findMemberByMobile" resultType="com.jinze.train.domain.member.Member">
         SELECT * from train.member where mobile = #{mobile}
     </select>
 
-    <insert id="register" parameterType="com.jinze.train.domain.Member">
+    <insert id="register" parameterType="com.jinze.train.domain.member.Member">
         INSERT INTO train.member (id,mobile) values (#{id}, #{mobile})
     </insert>
 
