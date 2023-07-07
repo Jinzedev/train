@@ -29,6 +29,19 @@ public class ControllerExceptionHandler {
         commonResp.setMessage("系统出现异常，请联系管理员");
         return commonResp;
     }
+    /**
+     * 业务异常统一处理
+     */
+    @ExceptionHandler(value = BusinessException.class)
+    @ResponseBody
+    public CommonResp exceptionHandler(BusinessException e) {
+        CommonResp commonResp = new CommonResp();
+        LOG.error("业务异常：{}", e.getE().getDesc());
+        commonResp.setSuccess(false);
+        commonResp.setMessage(e.getE().getDesc());
+        return commonResp;
+    }
+
 
 
 }
