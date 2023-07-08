@@ -6,6 +6,7 @@ import com.jinze.train.exception.BusinessException;
 import com.jinze.train.exception.BusinessExceptionEnum;
 import com.jinze.train.mapper.MemberMapper;
 import com.jinze.train.service.MemberService;
+import com.jinze.train.util.SnowUtil;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
@@ -33,7 +34,7 @@ public class MemberServiceImpl implements MemberService {
         }
 
         Member newMember = new Member();
-        newMember.setId(System.currentTimeMillis());
+        newMember.setId(SnowUtil.getSnowflakeNextId());
         newMember.setMobile(mobile);
 
         long result = memberMapper.register(newMember);
