@@ -1,6 +1,7 @@
 package com.jinze.train.controller;
 
 import com.jinze.train.domain.member.req.MemberRegisterReq;
+import com.jinze.train.domain.member.req.MemberSendCodeReq;
 import com.jinze.train.resp.CommonResp;
 import com.jinze.train.service.MemberService;
 import jakarta.annotation.Resource;
@@ -32,5 +33,13 @@ public class MemberController {
     public CommonResp<Long> register(@Validated MemberRegisterReq registerReq){
         long userId = memberService.register(registerReq.getMobile());
         return new CommonResp<>(userId);
+    }
+
+
+    @PostMapping("/sendCode")
+    public CommonResp<Long> sendCode(@Validated MemberSendCodeReq sendCodeReq){
+        memberService.sendCode(sendCodeReq.getMobile());
+        System.out.print("ddd");
+        return new CommonResp<>();
     }
 }

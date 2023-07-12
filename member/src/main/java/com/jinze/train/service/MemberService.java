@@ -20,4 +20,11 @@ public interface MemberService {
      * @author jinze
     */
     long register(String mobile);
+
+    /***
+     * 发送短信接口
+     * @param mobile 手机号
+     * @author jinze
+    */
+    void sendCode(String mobile);
 }

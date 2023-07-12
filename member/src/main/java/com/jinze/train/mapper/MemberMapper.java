@@ -32,4 +32,6 @@ public interface MemberMapper {
      * @author jinze
     */
     Member findMemberByMobile(String mobile);
+
+
 }
