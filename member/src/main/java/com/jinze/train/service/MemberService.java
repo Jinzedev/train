@@ -1,5 +1,7 @@
 package com.jinze.train.service;
 
+import com.jinze.train.domain.member.resp.MemberLoginResp;
+
 /***
  * 会员表 服务
  * @author jinze
@@ -27,4 +29,12 @@ public interface MemberService {
      * @author jinze
     */
     void sendCode(String mobile);
+
+    /***
+     * 登录
+     * @param mobile 手机号
+     * @param code 验证码
+     * @author jinze
+     */
+    MemberLoginResp login(String mobile, String code);
 }

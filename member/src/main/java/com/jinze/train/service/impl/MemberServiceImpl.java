@@ -1,7 +1,9 @@
 package com.jinze.train.service.impl;
 
+import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
 import com.jinze.train.domain.member.Member;
+import com.jinze.train.domain.member.resp.MemberLoginResp;
 import com.jinze.train.exception.BusinessException;
 import com.jinze.train.exception.BusinessExceptionEnum;
 import com.jinze.train.mapper.MemberMapper;
@@ -60,9 +62,10 @@ public class MemberServiceImpl implements MemberService {
             if (result <= 0 ){
                 throw new BusinessException(BusinessExceptionEnum.MEMBER_REGISTER_FALSE);
             }
-        } else {
-            throw new BusinessException(BusinessExceptionEnum.MEMBER_MOBILE_EXIST);
         }
+//        else {
+//            throw new BusinessException(BusinessExceptionEnum.MEMBER_MOBILE_EXIST);
+//        }
 
         // 生成验证码
         // String code = RandomUtil.randomString(4);
@@ -75,4 +78,21 @@ public class MemberServiceImpl implements MemberService {
         // 对接短信通道，发送短信
         log.info("对接短信通道");
     }
+
+    @Override
+    public MemberLoginResp login(String mobile, String code) {
+        Member member = memberMapper.findMemberByMobile(mobile);
+
+        if (ObjectUtil.isNull(member)){
+            throw new BusinessException(BusinessExceptionEnum.MEMBER_MOBILE_NOT_EXIST);
+        } else {
+            //校验验证码
+            if (!"8888".equals(code)){
+                throw new BusinessException(BusinessExceptionEnum.MEMBER_MOBILE_CODE_ERROR);
+            }
+        }
+        return BeanUtil.copyProperties(member, MemberLoginResp.class);
+    }
+
+
 }

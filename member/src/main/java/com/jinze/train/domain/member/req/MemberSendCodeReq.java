@@ -14,5 +14,4 @@ public class MemberSendCodeReq {
     @Pattern(regexp = "^1\\d{10}$", message = "手机号码格式错误")
     private String mobile;
 
-
 }

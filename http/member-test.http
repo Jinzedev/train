@@ -19,4 +19,10 @@ mobile=132456
 POST http://localhost:8000/member/sendCode
 Content-Type: application/x-www-form-urlencoded
 
-mobile=130000000000000
+mobile=13000000000
+
+### 登录
+POST http://localhost:8000/member/login
+Content-Type: application/x-www-form-urlencoded
+
+mobile=13000000000&code=8888
