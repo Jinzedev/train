@@ -8,10 +8,7 @@ import com.jinze.train.resp.CommonResp;
 import com.jinze.train.service.MemberService;
 import jakarta.annotation.Resource;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Member前端控制器
@@ -39,7 +36,7 @@ public class MemberController {
 
 
     @PostMapping("/sendCode")
-    public CommonResp<Long> sendCode(@Validated MemberSendCodeReq sendCodeReq){
+    public CommonResp<Long> sendCode(@Validated @RequestBody MemberSendCodeReq sendCodeReq){
         memberService.sendCode(sendCodeReq.getMobile());
         System.out.print("ddd");
         return new CommonResp<>();

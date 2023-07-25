@@ -11,3 +11,11 @@ spring:
             - Path=/member/**
           uri: http://127.0.0.1:8010
 #          uri: lb://member
+      global cors:
+        cors-configurations:
+          '[/**]':
+            allowCredentials: true
+            allowedHeaders: '*'
+            allowedMethods: '*'
+            allowedOriginPatterns: '*'
+            maxAge: 3600
